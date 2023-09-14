@@ -1,27 +1,68 @@
-# React + TypeScript + Vite
+# Pre-requisite
+   - JS Fundamentals
+   - TS
+   - Promise async/await
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# What is REACT
+   - It is a library that is developed by facebook back in 2013 to achieve more dynamic and responsive user interface that is fast and highly performant. Basicaly react is created to build more complex web applications that is hard to achieve with vanilla js. And keep in mind that react is a library not a framework.
 
-Currently, two official plugins are available:
+# Why use REACT
+   - Using vanilla javascript is like building a house with just a hammer but using react its like building a house using heavy machinery to get the work much faster.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Set up
+   - install node js
+   - npm create vite@latest
+   - select react as framework
+   - select either typescript or javascript
+   - cd yourProjectName
+   - npm install
+   - npm run dev
+#### Note: You don't need a separate live server to quickly see the changes because theres already built in live server in vite + react setup
 
-## Expanding the ESLint configuration
+# What is JSX
+   - It is a javascript inside html and denoted by `{}` and using camelCasing in all css and html attributes
+   - Example:
+   ```
+      <img src={yourImage} className="" />
+   ```
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+# What is component
+   - Component is just your customized html element that you can use anywhere in the app with the notation of `<ComponentName />`
+   - Also you can think of this just typical function and always has 2 parts your method boody and the jsx return type
+   - Example:
+   ```
+      function ComponentName() {
+         // method body
+         return (
+            <>
+               <h1>{dynamicVariable}</h1>
+            </>
+         );
+      }
+   ```
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+# React hooks
+`useState`
+   - Always returns 2 variables
+   - First is the variable/state
+   - Second is the setter function that set the variable/state
+   ###### its like getter and setter but the difference is inside the setter function there magic happening to update the dom
+   - Example:
+   ```
+      const [count, setCount] = useState(initialValue);
+   ```
+`useEffect`
+   - always have 2 parameters
+   - First is the functionEffect to run when the specified variable/state is updated and the return of this method is the clean up code.
+   - Second is the dependency array this where you will specify the variable/state you want to listen when that variable is updated it will run the functionEffect.
+   - Example:
+   ```
+      useEffect(functionEffect, dependencyArray);
+      useEffect(() => {
+         // method body
+         return () => {
+            // clean up code
+         }
+      }, []);
+   ```
+   ###### Note: don't use a setter function of the variable/state that is declared in dependency array because it will causing infinite loop
