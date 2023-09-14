@@ -57,12 +57,15 @@
    - Second is the dependency array this where you will specify the variable/state you want to listen when that variable is updated it will run the functionEffect.
    - Example:
    ```
-      useEffect(functionEffect, dependencyArray);
+      const [count, setCount] = useState(0);
+
+      // useEffect(functionEffect, dependencyArray);
+      // functionEffect will run everytime the count is updated, changed, deleted anything
       useEffect(() => {
          // method body
          return () => {
             // clean up code
          }
-      }, []);
+      }, [count]);
    ```
    ###### Note: don't use a setter function of the variable/state that is declared in dependency array because it will causing infinite loop
